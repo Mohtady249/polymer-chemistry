@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Learn about polymer chemistry, including polyamides, polyesters, and biodegradable polymers. Educational resource for students and professionals.">
+    <meta name="description" content="Comprehensive resource for polymer chemistry education, covering polyamides, polyesters, biodegradable polymers, and more.">
     <title>Polymer Chemistry - Educational Resource</title>
     <style>
         :root {
@@ -11,6 +11,8 @@
             --light-blue: #ebf8ff;
             --accent-green: #48bb78;
             --text-dark: #2d3748;
+            --gray-100: #f7fafc;
+            --gray-200: #edf2f7;
         }
 
         * {
@@ -25,13 +27,14 @@
             color: var(--text-dark);
         }
 
-        /* Navigation */
+        /* Enhanced Navigation */
         nav {
             background-color: var(--primary-blue);
             padding: 1rem;
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .nav-content {
@@ -53,24 +56,35 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
         }
 
         .nav-list a:hover {
-            color: var(--light-blue);
+            background-color: rgba(255, 255, 255, 0.1);
         }
 
-        /* Hero Section */
+        /* Enhanced Hero Section */
         .hero {
             background: linear-gradient(rgba(43, 108, 176, 0.9), rgba(43, 108, 176, 0.7)),
                         url('/api/placeholder/1200/400');
             color: white;
-            padding: 4rem 2rem;
+            padding: 6rem 2rem;
             text-align: center;
+            background-size: cover;
+            background-position: center;
         }
 
         .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         /* Main Content */
@@ -81,15 +95,33 @@
         }
 
         .section {
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
         .section h2 {
             color: var(--primary-blue);
             margin-bottom: 1.5rem;
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
         }
 
-        /* Cards */
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-green);
+            border-radius: 2px;
+        }
+
+        /* Enhanced Cards */
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -100,19 +132,51 @@
         .card {
             background: white;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            padding: 1.5rem;
-            transition: transform 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .card-content {
+            margin-top: 1rem;
+        }
+
+        .card-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .card-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .card-list li::before {
+            content: '•';
+            color: var(--accent-green);
+            position: absolute;
+            left: 0;
         }
 
         /* Contact Form */
         .contact-form {
             max-width: 600px;
             margin: 0 auto;
+            background: var(--gray-100);
+            padding: 2rem;
+            border-radius: 8px;
         }
 
         .form-group {
@@ -123,14 +187,22 @@
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 500;
+            color: var(--text-dark);
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
             padding: 0.75rem;
-            border: 1px solid #e2e8f0;
+            border: 1px solid var(--gray-200);
             border-radius: 4px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
         }
 
         .btn {
@@ -141,10 +213,42 @@
             border-radius: 4px;
             cursor: pointer;
             transition: background-color 0.3s;
+            font-weight: 500;
         }
 
         .btn:hover {
             background-color: #2c5282;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--gray-100);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text-dark);
+            text-decoration: none;
         }
 
         /* Responsive Design */
@@ -154,7 +258,15 @@
             }
 
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -175,50 +287,110 @@
 
     <section class="hero" id="home">
         <h1>Welcome to Polymer Chemistry</h1>
-        <p>Discover the fascinating world of polymers and their applications in modern science</p>
+        <p>Discover the fascinating world of polymers and their applications in modern science. From everyday materials to cutting-edge innovations, explore the chemistry that shapes our world.</p>
     </section>
 
     <main class="container">
         <section class="section" id="about">
             <h2>About Polymers</h2>
-            <p>Polymers are large molecules composed of many repeating subunits. They play a crucial role in both natural and synthetic materials, from DNA to plastic products that we use every day.</p>
+            <p>Polymers are large molecules composed of many repeating subunits, called monomers, which are bonded together in long chains. They are fundamental to many industries, including textiles, packaging, medicine, and construction. These versatile materials can be found everywhere in our daily lives, from natural polymers like cellulose in plants to synthetic ones like nylon in clothing.</p>
+            <div class="card-content">
+                <h3>Why Study Polymers?</h3>
+                <ul class="card-list">
+                    <li>Essential components in modern materials science</li>
+                    <li>Critical role in sustainable technology development</li>
+                    <li>Wide range of applications in medicine and biotechnology</li>
+                    <li>Fundamental to understanding biological systems</li>
+                </ul>
+            </div>
         </section>
 
         <section class="section" id="topics">
-            <h2>Key Topics</h2>
+            <h2>Key Topics in Polymer Chemistry</h2>
             <div class="cards-grid">
                 <div class="card">
                     <h3>Polyamides</h3>
-                    <p>Explore the structure and applications of polyamides, including nylon and natural proteins.</p>
+                    <div class="card-content">
+                        <p>Polyamides are polymers containing amide bonds, widely used in industrial and consumer applications.</p>
+                        <h4>Key Features:</h4>
+                        <ul class="card-list">
+                            <li>High strength and durability</li>
+                            <li>Excellent thermal stability</li>
+                            <li>Common in textiles and engineering</li>
+                        </ul>
+                        <h4>Applications:</h4>
+                        <ul class="card-list">
+                            <li>Nylon clothing and ropes</li>
+                            <li>Automotive components</li>
+                            <li>Industrial materials</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="card">
                     <h3>Polyesters</h3>
-                    <p>Learn about polyester synthesis and their widespread use in textiles and packaging.</p>
+                    <div class="card-content">
+                        <p>Polyesters are condensation polymers formed from dicarboxylic acids and diols, known for their versatility.</p>
+                        <h4>Synthesis:</h4>
+                        <ul class="card-list">
+                            <li>Condensation polymerization</li>
+                            <li>Step-growth mechanism</li>
+                            <li>Catalyst-dependent reactions</li>
+                        </ul>
+                        <h4>Common Uses:</h4>
+                        <ul class="card-list">
+                            <li>PET bottles and packaging</li>
+                            <li>Synthetic fabrics</li>
+                            <li>Medical implants</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="card">
                     <h3>Biodegradable Polymers</h3>
-                    <p>Discover sustainable alternatives and their impact on environmental conservation.</p>
+                    <div class="card-content">
+                        <p>Environmentally friendly polymers designed to decompose naturally under specific conditions.</p>
+                        <h4>Types:</h4>
+                        <ul class="card-list">
+                            <li>Polylactic acid (PLA)</li>
+                            <li>Polyhydroxyalkanoates (PHA)</li>
+                            <li>Starch-based polymers</li>
+                        </ul>
+                        <h4>Benefits:</h4>
+                        <ul class="card-list">
+                            <li>Reduced environmental impact</li>
+                            <li>Sustainable production</li>
+                            <li>Compostable end-of-life</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section class="section" id="resources">
-            <h2>Resources</h2>
+            <h2>Educational Resources</h2>
             <div class="cards-grid">
                 <div class="card">
                     <h3>Academic Journals</h3>
-                    <ul>
+                    <ul class="card-list">
                         <li>Journal of Polymer Science</li>
                         <li>Polymer Chemistry</li>
                         <li>Macromolecules</li>
+                        <li>Progress in Polymer Science</li>
                     </ul>
                 </div>
                 <div class="card">
                     <h3>Reference Books</h3>
-                    <ul>
-                        <li>Principles of Polymerization</li>
-                        <li>Polymer Physics</li>
-                        <li>Introduction to Polymers</li>
+                    <ul class="card-list">
+                        <li>Principles of Polymerization by George Odian</li>
+                        <li>Polymer Physics by Michael Rubinstein</li>
+                        <li>Introduction to Polymers by Robert J. Young</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Online Learning</h3>
+                    <ul class="card-list">
+                        <li>MIT OpenCourseWare: Polymer Science and Engineering</li>
+                        <li>Coursera: Polymer Chemistry Fundamentals</li>
+                        <li>edX: Introduction to Polymer Chemistry</li>
                     </ul>
                 </div>
             </div>
@@ -226,41 +398,40 @@
 
         <section class="section" id="contact">
             <h2>Contact Us</h2>
-            <form class="contact-form">
+            <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" id="name" required>
+                    <input type="text" id="name" name="name" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" required>
+                    <input type="email" id="email" name="email" required>
                 </div>
                 <div class="form-group">
                     <label for="message">Message</label>
-                    <textarea id="message" rows="5" required></textarea>
+                    <textarea id="message" name="message" rows="5" required></textarea>
                 </div>
                 <button type="submit" class="btn">Send Message</button>
             </form>
         </section>
     </main>
 
-    <script>
-        // Simple form handling
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! We will get back to you soon.');
-            this.reset();
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
-</body>
-</html>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About This Site</h3>
+                <p>An educational resource dedicated to advancing understanding of polymer chemistry and its applications.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="card-list">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#topics">Topics</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#" target="_blank">LinkedIn</a>
+                    <a href="#" target="_blank">Twitter</a> 
